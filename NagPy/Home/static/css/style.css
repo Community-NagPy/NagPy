@@ -1,0 +1,345 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis:400,700|Roboto:400,400i,700");
+
+:root {
+  --c1: #35495e;
+  --c2: #41b883;
+  --c1rgb: rgba(53, 73, 94, 1);
+  --c2rgb: rgba(65, 184, 131, 1);
+}
+
+.body-container {
+  margin-top: 100px;
+}
+
+.container-fluid {
+  padding: 0;
+  /* min-height: 100vh; */
+  position: relative;
+}
+
+.navbar-brand {
+  color: var(--c1);
+  font-family: "Dosis";
+  font-size: 1.5em;
+  font-weight: 500;
+}
+
+.bg-primary {
+  background-color: white !important;
+}
+
+.nav-link:hover,
+.dropdown-item:hover {
+  color: var(--c2) !important;
+}
+
+.fs-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #fff;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.cs-btn {
+  background-color: var(--c1);
+  outline: none;
+  border-width: 0;
+}
+
+.cs-btn:hover {
+  background-color: var(--c2);
+}
+
+.footer-cont {
+  position: absolute;
+  bottom: 0px;
+  /* padding: 1.3em; */
+  /* top: calc(100% - 200px); */
+  height: 200px;
+  width: 100%;
+  background-color: var(--c1);
+}
+
+.event-container {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.card {
+  margin: 10px;
+  background-color: var(--c1);
+  color: var(--c2);
+}
+
+.clr {
+  color: var(--c2) !important;
+}
+
+.card-link {
+  margin: 5px;
+}
+
+.disabled {
+  pointer-events: none;
+  color: white;
+}
+
+.profile-pic-wrapper {
+  left: 50%;
+  margin-left: -37px;
+  top: 3.5rem;
+}
+
+.prof-img-thumb {
+  height: 80px;
+  width: 80px;
+}
+.button_container {
+  position: fixed;
+  top: 5%;
+  right: 2%;
+  height: 27px;
+  width: 100%;
+  cursor: pointer;
+  z-index: 100;
+  transition: opacity 0.25s ease;
+}
+.button_container:hover {
+  opacity: 0.7;
+}
+.button_container.active .top {
+  -webkit-transform: translateY(11px) translateX(0) rotate(45deg);
+  transform: translateY(11px) translateX(0) rotate(45deg);
+  background: #fff;
+}
+.button_container.active .middle {
+  opacity: 0;
+  background: #fff;
+}
+.button_container.active .bottom {
+  -webkit-transform: translateY(-11px) translateX(0) rotate(-45deg);
+  transform: translateY(-11px) translateX(0) rotate(-45deg);
+  background: #fff;
+}
+.button_container span {
+  background: var(--c1);
+  border: none;
+  height: 5px;
+  width: inherit;
+  position: absolute;
+  top: 0;
+  right: 10px;
+  transition: all 0.35s ease;
+  cursor: pointer;
+}
+.button_container span:nth-of-type(2) {
+  top: 11px;
+}
+.button_container span:nth-of-type(3) {
+  top: 22px;
+}
+
+.overlay {
+  position: fixed;
+  background: var(--c1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0.35s, height 0.35s;
+  overflow: hidden;
+}
+.overlay.open {
+  opacity: 0.9;
+  visibility: visible;
+  height: 100%;
+  z-index: 99;
+}
+.overlay.open li {
+  -webkit-animation: fadeInRight 0.5s ease forwards;
+  animation: fadeInRight 0.5s ease forwards;
+  -webkit-animation-delay: 0.35s;
+  animation-delay: 0.35s;
+}
+.overlay.open li:nth-of-type(2) {
+  -webkit-animation-delay: 0.4s;
+  animation-delay: 0.4s;
+}
+.overlay.open li:nth-of-type(3) {
+  -webkit-animation-delay: 0.45s;
+  animation-delay: 0.45s;
+}
+.overlay.open li:nth-of-type(4) {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+.overlay nav {
+  position: relative;
+  height: 70%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: 50px;
+  font-family: "Vollkorn", serif;
+  font-weight: 400;
+  text-align: center;
+}
+.overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  text-transform: uppercase;
+}
+.overlay ul li {
+  display: block;
+  height: 25%;
+  height: calc(100% / 9);
+  min-height: 50px;
+  position: relative;
+  opacity: 0;
+}
+.overlay ul li a {
+  display: block;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  font-size: 2rem;
+}
+.overlay ul li a:hover:after,
+.overlay ul li a:focus:after,
+.overlay ul li a:active:after {
+  width: 100%;
+}
+.overlay ul li a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  height: 3px;
+  background: #fff;
+  transition: 0.35s;
+}
+
+@-webkit-keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+.body-title {
+  position: absolute;
+  top: -20px;
+  left: 50px;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.bar {
+  width: 35px;
+}
+
+#social-link {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Home-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Dosis";
+}
+
+.Home-view p {
+  font-size: 20px;
+  margin: 0 100px;
+  color: var(--c2);
+  text-align: center;
+  position: relative;
+}
+
+.Home-view p::before {
+  content: "\201C";
+  font-size: 80px;
+  color: var(--c1);
+  position: absolute;
+  top: -30px;
+  left: -25px;
+}
+
+.Home-view p::after {
+  content: "\201D";
+  font-size: 80px;
+  color: var(--c1);
+  position: absolute;
+  bottom: -60px;
+}
+
+.home-btn {
+  width: 300px;
+  margin: 50px;
+}
+
+.txt-white {
+  color: white;
+}

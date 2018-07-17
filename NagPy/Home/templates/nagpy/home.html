@@ -1,0 +1,13 @@
+{% extends 'base.html' %} 
+{% block bodytitle %}
+<div class="body-title" id='ttl'>Home</div>
+{% endblock %}
+{% block body %}
+{% load static %}
+<div class="Home-view">
+    <img src="{% static 'images/logo.svg' %}" alt="" height="200px" width="300px">
+    <h1>Welcome To Nagpy</h1>
+    <p><strong>NagPy</strong> is the online portal for Beginners, Intermidiators and expert level programmers to organise meetups and learn by colabrating with different projects.</p>
+    <button class="btn btn-lg btn-primary btn-block cs-btn home-btn" src="{% url 'Home:register' %}">Register</button>
+</div>
+{% endblock %}

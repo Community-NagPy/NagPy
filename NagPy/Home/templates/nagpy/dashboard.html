@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Dashboard</title>
+{% endblock %}
+{% block bodytitle %}
+<div class="body-title" id='ttl'>Dashboard</div>
+{% endblock %}
+{% block body %}
+<div class="event-container">
+
+  {% for event in events %}
+  <div class="card text-center" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ event.name }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted clr">City: {{ event.city }}</h6>
+      <p class="card-text">{{ event.description }}</p>
+      <p class="card-text">Venue: {{ event.venue }}</p>
+      <a href="#" class="card-link disabled">{{ event.date }}</a>
+      <a href="#" class="card-link disabled">{{ event.time }}</a>
+      <h6 class="card-subtitle mb-2 text-muted clr" style="margin:10px">{{ event.contact }}</h6>
+      <a href="{% url 'Home:edit_event' pk=event.pk %}" class="card-link">Edit Event</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
