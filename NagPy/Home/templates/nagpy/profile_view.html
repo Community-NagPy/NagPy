@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block head %}
+<title>Profile</title>
+{% endblock %} 
+{% block bodytitle %}
+<div class="body-title" id='ttl'>Profile</div>
+{% endblock %}
+{% block body %}
+<div class="text-center">
+<div class="text-center mt-4">
+  <div class="row">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header p-5 bg-dark"></div>
+      <div class="card-body text-center">
+        <h5 class="card-title mt-4 mb-0">{{ user.username }}</h5>
+        <span>{{ user.email }}</span>
+        <p class="card-text mt-2">{{ user.userprofile.description }}</p>
+        <p class="card-text mt-2">{{ user.userprofile.city }}</p>
+<a href="{% url 'Home:edit_profile' %}" class="card-link">Edit profile</a>
+      <a href="{% url 'Home:userprofile_edit' %}" class="card-link">Edit userprofile</a>
+      </div>
+      <div class="position-absolute profile-pic-wrapper">
+        {% load static %}
+        {% if user.userprofile.dp %}
+          <img src={{ user.userprofile.dp.url }} class="rounded-circle img-thumbnail prof-img-thumb" alt="profile">
+        {% else %}
+          <img src={% static 'images/default.jpg' %} class="rounded-circle img-thumbnail prof-img-thumb" alt="Mads Obel">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>  
+</div>
+</div>
+{% endblock %}

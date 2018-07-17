@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">{% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script> {% block head %}
+    <title>Nagpy</title>
+    {% endblock %}
+
+</head>
+
+<body>
+   
+    <div class="container-fluid">
+         <div class="button_container" id="toggle">
+             {% block bodytitle %}
+             <div class="body-title" id="ttl">Base</div>
+             {% endblock %}
+             <div class="bar">
+  <span class="top"></span>
+  <span class="middle"></span>
+  <span class="bottom"></span>
+  </div>
+</div>
+        <div class="overlay" id="overlay">
+        <nav class="overlay-menu">
+                <ul>
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'Home:logout' %}">logout
+                        </a></li>
+                        <li>
+                       <a href="{% url 'Home:view_profile' %}">profile</a>
+
+                    </li>
+                    <li>
+                            <a href="{% url 'Home:edit_profile' %}">edit Profile
+                                </a>
+                    </li>
+                    <li>
+                            <a href="{% url 'Home:change_password' %}">change password
+                                </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Home:events_view' %}" >Events</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Home:add_event' %}" >Add New Event
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'Home:dashboard' %}" >Dashboard
+                        </a>
+                    </li>
+
+
+
+
+
+                    {% else %}
+                    <li >
+                        <a href="{% url 'Home:home' %}" >Home</a>
+                    </li>
+                    <li >
+                        <a href="{% url 'Home:register' %}" >Signup</a>
+                    </li>
+                    <li >
+                        <a href="{% url 'Home:login' %}">Signin
+                        </a>
+                    </li>
+                    {% endif %}
+                    <li id="social-link">
+
+                        <a href="">
+                            {% load static %}
+                            <img src="{% static 'images/slack.svg' %}" alt="" height="50px" width="50px">
+                        </a>
+                        <a href="">
+                                {% load static %}
+                                <img src="{% static 'images/fb.svg' %}" alt="" height="50px" width="50px">
+                            </a>
+                            <a href="">
+                                    {% load static %}
+                                    <img src="{% static 'images/twitter.svg' %}" alt="" height="50px" width="50px">
+                                </a>
+                    </li>
+                    <li>
+
+                        <small class="text-muted" style="font-size:15px; color:white; text-transform:none">Copyright &copy; 2018 NagPy</small>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                hello
+            </footer>
+        </div>
+
+        <div class="body-container">
+        {% block body %}
+        <h1>base</h1>
+        {% endblock %}
+        </div>
+
+    </div>
+</body>
+
+</html>

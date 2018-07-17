@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">{% load static %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/jquery.js' %}"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script> {% block head %}
+    <title>Nagpy</title>
+    {% endblock %}
+<script src="{% static 'js/script.js' %}"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+            <a class="navbar-brand" href="#">NagPY</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    {% if user.is_authenticated %}
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a href="{% url 'Home:logout' %}" class="dropdown-item">logout
+                            </a>
+                            <a href="{% url 'Home:view_profile' %}" class="dropdown-item">profile
+                            </a>
+                            <a href="{% url 'Home:edit_profile' %}" class="dropdown-item">edit Profile
+                            </a>
+                            <a href="{% url 'Home:change_password' %}" class="dropdown-item">change password
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'Home:events_view' %}" class="nav-link">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'Home:add_event' %}" class="nav-link">Add New Event
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'Home:dashboard' %}" class="nav-link">Dashboard
+                        </a>
+                    </li>
+
+
+
+
+
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{% url 'Home:home' %}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'Home:register' %}" class="nav-link">Signup</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'Home:login' %}" class="nav-link">Signin
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+        {% block body %}
+        <h1>base</h1>
+        {% endblock %}
+    <footer class="footer-cont">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+    </footer>
+    </div>
+</body>
+
+
+</html>
