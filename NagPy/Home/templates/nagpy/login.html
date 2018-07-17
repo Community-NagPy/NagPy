@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% block head %}
+<title>Login</title>
+{% endblock %} 
+{% block bodytitle %}
+<div class="body-title" id='ttl'>Login</div>
+{% endblock %}
+{% block body %}
+{% load widget_tweaks %}
+<!-- <form method="POST">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit" name="login">Login</button>
+</form> -->
+
+<div class="fs-container text-center">
+    <form class="form-signin" method="post">
+        {% load static %}
+        <img class="mb-4" src="{% static 'images/python_logo.svg' %}" alt="" width="72" height="72">
+
+        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        {% csrf_token %}
+
+
+        {% for hidden_field in form.hidden_fields %} 
+            {{ hidden_field }}
+        {% endfor %} 
+        {% if form.non_field_errors %}
+            <div class="alert alert-danger" role="alert">
+                {% for error in form.non_field_errors %} 
+                    {{ error }}
+                {% endfor %}
+            </div>
+        {% endif %} 
+        {% for field in form.visible_fields %}
+            <div class="form-group">
+                <!-- {{ field.label_tag }}  -->
+                {% if form.is_bound %} 
+                    {% if field.errors %} 
+                        {% render_field field class="form-control is-invalid" %}
+                        {% for error in field.errors %}
+                            <div class="invalid-feedback">
+                                {{ error }}
+                            </div>
+                        {% endfor %} 
+                    {% else %}
+                        {% render_field field class="form-control is-valid" placeholder=field.label %}
+                    {% endif %}
+                {% else %} 
+                    {% render_field field class="form-control" placeholder=field.label %}
+                {% endif %}
+                {% if field.help_text %}
+                    <small class="form-text text-muted">{{ field.help_text }}</small>
+                {% endif %}
+            </div>
+        {% endfor %}
+        <div class="checkbox mb-3">
+        <label>
+                <a href="{% url 'Home:reset_password' %}">forget password</a>
+        </label>
+      </div>
+
+        <button class="btn btn-lg btn-primary btn-block cs-btn" type="submit" name="login">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+
+
+    </form>
+
+</div>
+
+
+
+{% endblock %}
